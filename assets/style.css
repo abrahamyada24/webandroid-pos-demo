@@ -1,19 +1,19 @@
-:root{--brand:#0f9d8a;--brand-d:#0b7a6b;--ink:#0f172a;--muted:#475569;--bg:#fff;--soft:#f1f5f9;--line:#e2e8f0;--warn:#fef3c7;--r:14px}
+:root{--brand:#1d4ed8;--brand-d:#1e3a8a;--ink:#0f172a;--muted:#475569;--bg:#fff;--soft:#f1f5f9;--line:#e2e8f0;--warn:#fef3c7;--r:14px}
 *{box-sizing:border-box}
 body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
 a{color:var(--brand-d)}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 header.site{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:10}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap}
-.logo{font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none}
-.logo span{color:var(--brand)}
+.logo{display:inline-flex;align-items:center}
+.logo img{height:40px;width:auto;display:block}
 nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:500}
 nav a:hover,nav a[aria-current]{color:var(--brand-d)}
 .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:600;border:0;cursor:pointer;font-size:1rem}
 .btn:hover{background:var(--brand-d)}
 .btn.ghost{background:#fff;color:var(--brand-d);border:1px solid var(--brand)}
 .btn[aria-disabled=true]{background:#94a3b8;pointer-events:none}
-.hero{padding:72px 0 56px;background:linear-gradient(180deg,#ecfdf9,#fff)}
+.hero{padding:72px 0 56px;background:linear-gradient(180deg,#eef4ff,#fff)}
 .hero h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:0 0 16px}
 .hero p{font-size:1.15rem;color:var(--muted);max-width:620px}
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
@@ -26,7 +26,7 @@ h2{font-size:1.75rem;margin:0 0 8px}
 .card h3{margin:0 0 6px;font-size:1.1rem}
 .card p{margin:0;color:var(--muted)}
 .price{font-size:2rem;font-weight:800;margin:8px 0}
-.price small{font-size:.95rem;font-weight:500;color:var(--muted)}
+.price small{display:block;font-size:.95rem;font-weight:500;color:var(--muted)}
 .card ul{padding-left:20px;color:var(--muted)}
 .card.featured{border:2px solid var(--brand)}
 .todo{background:var(--warn);border-radius:6px;padding:0 6px;font-size:.9em}
@@ -40,3 +40,23 @@ code{background:var(--soft);padding:2px 6px;border-radius:6px;word-break:break-a
 footer.site{border-top:1px solid var(--line);padding:32px 0;margin-top:0;color:var(--muted);font-size:.95rem}
 footer.site .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 footer.site a{margin-right:14px}
+
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero img.shot{width:100%;height:auto;border-radius:var(--r);box-shadow:0 20px 40px -20px rgba(15,23,42,.35)}
+.hero .cta .btn{margin:0}
+.grid.f4{grid-template-columns:repeat(3,1fr)}
+@media(max-width:760px){.grid.f4{grid-template-columns:1fr}}
+.badge{display:inline-block;background:#facc15;color:#422006;font-weight:700;font-size:.8rem;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+.card .sub{color:var(--muted);font-size:.95rem;margin:0}
+.card .btn{width:100%;text-align:center;margin-top:8px}
+.card ul{margin:12px 0}
+.table-card{overflow:auto}
+@media(max-width:760px){
+ .hero .wrap{grid-template-columns:1fr}
+ header.site .wrap{padding-top:8px;padding-bottom:8px}
+ nav{width:100%;display:flex;justify-content:space-between}
+ nav a{margin:0}
+ footer.site .wrap>div:last-child a{display:inline-block;margin:0 14px 4px 0}
+}
+.card:has(.meta){padding-top:8px}
+.btn+.btn{margin-left:8px}
