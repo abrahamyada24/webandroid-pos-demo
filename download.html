@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Download LitePOS untuk Android</title>
+<meta name="description" content="Unduh APK LitePOS untuk Android beserta panduan pemasangan.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="/">Lite<span>POS</span></a>
+  <nav><a href="/#fitur">Fitur</a><a href="harga.html">Harga</a><a href="download.html" aria-current="page">Download</a><a href="kontak.html">Kontak</a></nav>
+</div></header>
+
+<main><section class="block"><div class="wrap">
+  <h2>Download LitePOS untuk Android</h2>
+  <p class="lead">Saat ini aplikasi belum tersedia di Google Play Store dan dibagikan langsung dalam bentuk file APK.</p>
+
+  <div class="card">
+    <table class="meta">
+      <tr><td>Versi</td><td id="v">–</td></tr>
+      <tr><td>Tanggal rilis</td><td id="d">–</td></tr>
+      <tr><td>Ukuran</td><td id="s">–</td></tr>
+      <tr><td>Kebutuhan</td><td>Android 7.0 atau lebih baru <span class="todo">[ISI: minSdk sebenarnya]</span></td></tr>
+      <tr><td>SHA-256</td><td><code id="h">–</code></td></tr>
+    </table>
+    <a class="btn" id="dl" href="#" aria-disabled="true">APK belum tersedia</a>
+  </div>
+
+  <h2 style="margin-top:40px">Cara memasang</h2>
+  <ol>
+    <li>Unduh file APK di atas langsung dari HP Android Anda.</li>
+    <li>Buka file yang terunduh. Jika diminta, izinkan <b>“Instal dari sumber ini”</b> untuk browser Anda (Pengaturan → Keamanan / Aplikasi).</li>
+    <li>Jika muncul peringatan Play Protect, pilih <b>“Tetap instal”</b>. Peringatan ini muncul karena aplikasi belum dari Play Store.</li>
+    <li>Buka LitePOS, lalu masuk atau aktifkan langganan Anda.</li>
+  </ol>
+  <div class="notice"><b>Cek keaslian file:</b> bandingkan SHA-256 file yang Anda unduh dengan nilai di atas. Unduh hanya dari <b>litepos.id</b>.</div>
+  <p>Sudah ada akun? Lihat <a href="harga.html">paket langganan</a>. Butuh bantuan? <a href="kontak.html">Hubungi kami</a>.</p>
+</div></section></main>
+
+<footer class="site"><div class="wrap">
+  <div>© <span id="y">2026</span> LitePOS. <span class="todo">[ISI: nama usaha]</span></div>
+  <div><a href="syarat.html">Syarat &amp; Ketentuan</a><a href="privasi.html">Kebijakan Privasi</a><a href="refund.html">Refund</a><a href="kontak.html">Kontak</a></div>
+</div></footer>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+// Info rilis dibaca dari downloads/latest.json (lihat README untuk formatnya).
+fetch('downloads/latest.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
+  const set=(id,t)=>document.getElementById(id).textContent=t;
+  set('v',j.version);set('d',j.date);set('h',j.sha256);
+  set('s',(j.size_bytes/1048576).toFixed(1)+' MB');
+  const a=document.getElementById('dl');
+  a.href=j.file;a.setAttribute('download','');a.removeAttribute('aria-disabled');
+  a.textContent='Download APK v'+j.version;
+}).catch(()=>{});
+</script>
+</body>
+</html>
