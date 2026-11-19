@@ -18,24 +18,25 @@
   <p class="lead">Saat ini aplikasi belum tersedia di Google Play Store dan dibagikan langsung dalam bentuk file APK.</p>
 
   <div class="card">
-    <table class="meta">
+    <table class="meta" id="info" hidden>
       <tr><td>Versi</td><td id="v">–</td></tr>
       <tr><td>Tanggal rilis</td><td id="d">–</td></tr>
       <tr><td>Ukuran</td><td id="s">–</td></tr>
       <tr><td>Kebutuhan</td><td>Perangkat Android</td></tr>
       <tr><td>SHA-256</td><td><code id="h">–</code></td></tr>
     </table>
-    <a class="btn" id="dl" href="#" aria-disabled="true">APK belum tersedia</a>
+    <a class="btn" id="dl" href="https://drive.google.com/drive/folders/1FvF0e-snbGzUPaV5aKZroDP2Maiw35Xa?usp=drive_link" target="_blank" rel="noopener">Download APK (Google Drive)</a>
+    <p class="sub" style="margin-top:10px">Paket Starter (gratis). Folder Google Drive berisi file APK versi terbaru.</p>
   </div>
 
   <h2 style="margin-top:40px">Cara memasang</h2>
   <ol>
-    <li>Unduh file APK di atas langsung dari HP Android Anda.</li>
+    <li>Unduh file APK di atas dari HP Android Anda. Jika dibuka di Google Drive, pilih file APK lalu tekan <b>Download</b>.</li>
     <li>Buka file yang terunduh. Jika diminta, izinkan <b>“Instal dari sumber ini”</b> untuk browser Anda (Pengaturan → Keamanan / Aplikasi).</li>
     <li>Jika muncul peringatan Play Protect, pilih <b>“Tetap instal”</b>. Peringatan ini muncul karena aplikasi belum dari Play Store.</li>
     <li>Buka LitePOS, lalu masuk atau aktifkan langganan Anda.</li>
   </ol>
-  <div class="notice"><b>Cek keaslian file:</b> bandingkan SHA-256 file yang Anda unduh dengan nilai di atas. Unduh hanya dari <b>litepos.id</b>.</div>
+  <div class="notice"><b>Unduh dari sumber resmi:</b> gunakan hanya tautan di halaman <b>litepos.id</b> ini.</div>
   <p>Sudah ada akun? Lihat <a href="harga.html">paket langganan</a>. Butuh bantuan? <a href="kontak.html">Hubungi kami</a>.</p>
 </div></section></main>
 
@@ -51,7 +52,8 @@ fetch('downloads/latest.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.
   set('v',j.version);set('d',j.date);set('h',j.sha256);
   set('s',(j.size_bytes/1048576).toFixed(1)+' MB');
   const a=document.getElementById('dl');
-  a.href=j.file;a.setAttribute('download','');a.removeAttribute('aria-disabled');
+  document.getElementById('info').hidden=false;
+  a.href=j.file;a.removeAttribute('target');a.setAttribute('download','');
   a.textContent='Download APK v'+j.version;
 }).catch(()=>{});
 </script>
